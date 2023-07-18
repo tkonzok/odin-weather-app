@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;400;500;700;900&display=swap");
+
 body {
+  font-family: "Barlow", sans-serif;
   font-size: 16px;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -33,7 +37,7 @@ body {
 }
 
 .temperature {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -46,11 +50,11 @@ body {
   border: 2px solid;
   width: 70%;
   min-width: 450px;
-  background: rgb(152, 137, 120);
+  background: rgba(0, 0, 0, 0.75);
   background: linear-gradient(
     0deg,
-    rgba(152, 137, 120, 1) 0%,
-    rgba(255, 228, 196, 1) 100%
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(100, 100, 100, 0.75) 100%
   );
 }
 
@@ -68,7 +72,7 @@ body {
 }
 
 .weather-today > div > p:last-child {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .weather-forecast {
@@ -78,11 +82,11 @@ body {
   width: 70%;
   min-width: 450px;
   border: 2px solid;
-  background: rgb(152, 137, 120);
+  background: rgba(0, 0, 0, 0.75);
   background: linear-gradient(
     0deg,
-    rgba(152, 137, 120, 1) 0%,
-    rgba(255, 228, 196, 1) 100%
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(100, 100, 100, 0.75) 100%
   );
 }
 
@@ -103,5 +107,5 @@ body {
 
 #weather {
   text-align: center;
-  max-height: 200px;
+  height: 200px;
 }
