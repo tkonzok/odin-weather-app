@@ -2,11 +2,13 @@ import './normalize.css';
 import './style.css';
 import Bg from './bg.jpg';
 
+const bg = document.querySelector('#bg');
+bg.src = Bg;
+
 const weatherImg = document.querySelector('#weather');
 const form = document.querySelector('form')
 const btn = document.querySelector('#search-button');
 const input = document.querySelector('#city-input');
-const bg = document.querySelector('#bg');
 
 const weatherTodayDiv = document.querySelector('.weather-today');
 const todayDate = document.querySelector('.weather-today > .date')
@@ -34,8 +36,6 @@ const weatherApiKey = 'e404ee23ac724f8db2c152612231707'
 const giphyApiKey = '8s7SFBMuaeubNODDvWAmpA5k8nV5NouA'
 
 let weatherData = {}
-
-bg.src = Bg;
 
 async function updateWeather(term) {
     try {
