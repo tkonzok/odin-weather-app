@@ -1,3 +1,6 @@
+import './normalize.css';
+import './style.css';
+
 const weatherImg = document.querySelector('#weather');
 const form = document.querySelector('form')
 const btn = document.querySelector('#search-button');
@@ -32,7 +35,7 @@ let weatherData = {}
 
 async function updateWeather(term) {
     try {
-       const url = `http://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${term}&days=4`
+       const url = `https://api.weatherapi.com/v1/forecast.json?key=${weatherApiKey}&q=${term}&days=4`
         const response = await fetch(url, {mode: 'cors'})
         weatherData = await response.json()
         console.log(weatherData)
@@ -44,7 +47,7 @@ async function updateWeather(term) {
 
 async function updateWeatherImage(term) {
     try {
-       const url = `http://api.giphy.com/v1/gifs/translate?api_key=${giphyApiKey}&s=${term}`
+       const url = `https://api.giphy.com/v1/gifs/translate?api_key=${giphyApiKey}&s=${term}`
         const response = await fetch(url, {mode: 'cors'})
         const imgData = await response.json()
         weatherImg.src = imgData.data.images.original.url 
