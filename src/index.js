@@ -43,7 +43,7 @@ async function updateWeather(term) {
         const response = await fetch(url, {mode: 'cors'})
         weatherData = await response.json()
         console.log(weatherData)
-        updateWeatherImage(weatherData.current.condition.text)
+        await updateWeatherImage(weatherData.current.condition.text)
     } catch (error) {
         console.log(error);
         }
@@ -66,22 +66,22 @@ async function updateForecast(location) {
     todayDate.textContent = `${weatherData.location.name}, ${weatherData.location.country} (${weatherData.current.last_updated})`
     todayIcon.src = `http:${weatherData.current.condition.icon}`
     currentTemp.textContent = `${weatherData.current.temp_c}°C`
-    todayTemp.textContent = `${weatherData.forecast.forecastday[0].day.mintemp_c} / ${weatherData.forecast.forecastday[0].day.maxtemp_c}°C`
+    todayTemp.textContent = `${Math.round(weatherData.forecast.forecastday[0].day.mintemp_c, 0)} / ${Math.round(weatherData.forecast.forecastday[0].day.maxtemp_c, 0)}°C`
     todayCond.textContent = weatherData.current.condition.text
 
     day1Date.textContent = weatherData.forecast.forecastday[1].date
     day1Icon.src = `http:${weatherData.forecast.forecastday[1].day.condition.icon}`
-    day1Temp.textContent = `${weatherData.forecast.forecastday[1].day.mintemp_c} / ${weatherData.forecast.forecastday[1].day.maxtemp_c}°C`
+    day1Temp.textContent = `${Math.round(weatherData.forecast.forecastday[1].day.mintemp_c, 0)} / ${Math.round(weatherData.forecast.forecastday[1].day.maxtemp_c, 0)}°C`
     day1Cond.textContent = weatherData.forecast.forecastday[1].day.condition.text
 
     day2Date.textContent = weatherData.forecast.forecastday[2].date
     day2Icon.src = `http:${weatherData.forecast.forecastday[2].day.condition.icon}`
-    day2Temp.textContent = `${weatherData.forecast.forecastday[2].day.mintemp_c} / ${weatherData.forecast.forecastday[2].day.maxtemp_c}°C`
+    day2Temp.textContent = `${Math.round(weatherData.forecast.forecastday[2].day.mintemp_c, 0)} / ${Math.round(weatherData.forecast.forecastday[2].day.maxtemp_c, 0)}°C`
     day2Cond.textContent = weatherData.forecast.forecastday[2].day.condition.text
 
     day3Date.textContent = weatherData.forecast.forecastday[3].date
     day3Icon.src = `http:${weatherData.forecast.forecastday[3].day.condition.icon}`
-    day3Temp.textContent = `${weatherData.forecast.forecastday[3].day.mintemp_c} / ${weatherData.forecast.forecastday[3].day.maxtemp_c}°C`
+    day3Temp.textContent = `${Math.round(weatherData.forecast.forecastday[3].day.mintemp_c, 0)} / ${Math.round(weatherData.forecast.forecastday[3].day.maxtemp_c, 0)}°C`
     day3Cond.textContent = weatherData.forecast.forecastday[3].day.condition.text
 }
 
@@ -91,4 +91,4 @@ form.addEventListener('submit', (e) => {
     updateForecast(data.get('location'))
 })
 
-updateForecast('Hamburg')
+updateForecast('Meddewade')
